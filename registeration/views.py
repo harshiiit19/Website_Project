@@ -81,8 +81,8 @@ def signin(request):
 
 def signout(request):
         logout(request)
-        messages.success(request, 'You have successfully logged out.')
-        return redirect('signin')
+        # messages.success(request, 'You have successfully logged out.')
+       # return redirect('signin')
 
         return render(request, 'signout.html')
 
