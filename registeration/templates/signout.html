@@ -1,18 +1,20 @@
+<!-- signout.html -->
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Signned Out</title>
+    <title>Logged Out</title>
     <link rel="stylesheet" type="text/css" href="{% static 'signout.css' %}">
 </head>
 <body>
     <div class="container">
-        <h2>You have been Signned out</h2>
-        <p>Thank you for visiting. You can <a href="{% url 'signin' %}">log in again</a> if you wish.</p>
-        <a href="{% url 'home' %}" class="home-button">Go to Home</a>
+        <h2>You Have Been Logged Out</h2>
+        <p>Thank you for visiting! You can log in again anytime.</p>
+        <a href="{% url 'signin' %}">Log In Again</a><br>
+        <a href="{% url 'home' %}">Go to Home</a>
     </div>
 </body>
 </html>
+
