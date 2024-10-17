@@ -1,0 +1,22 @@
+body {
+    background-color: #f8f9fa;
+    background-image: url('bg.jpg'); /* Light gray background */
+}
+
+
+.container {
+    max-width: 500px; /* Set a max width for the form */
+    margin-top: 50px; /* Space from the top */
+    padding: 20px;
+    border: 1px solid whitesmoke;
+    border-radius: 8px;
+    color: aliceblue;
+    background-color: #0f0e0e; /* White background for form */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    margin-bottom: 20px; /* Space below the heading */
+}
+
+

@@ -1,0 +1,92 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup - Spice & Savor</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'signup.css' %}"> <!-- Custom styles -->
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Spice & Savor</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="{% url  'home' %}">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'signin' %}">Sign In</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+
+    <div class="container my-5">
+        {% if messages %}
+        <!-- <ul> -->
+                {% for message in messages %}
+                    <b><h1 style="font-style: italic;">{{ message }}</h1></b>
+                {% endfor %}
+        <!-- </ul> -->
+        {% endif %}
+        <h2 class="text-center">Signup</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" class="form-control" id="name" name="fullname" placeholder="Enter your name" required>
+            </div>
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="username" class="form-control" id="username" name="username" placeholder="Enter your username" required>
+            </div>
+            <div class="form-group">
+                <label for="dob">DOB</label>
+                <input type="date" class="form-control" id="dob" name="dob" placeholder="Date of Birth" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email address</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Enter Phonr Number</label>
+                <input type="number" class="form-control" id="phone" name="phone" placeholder="Enter your phonr number" required>
+            </div>
+            <div class="form-group">
+                <label for="city">City</label>
+                <input type="text" class="form-control" id="city" name="city" placeholder="Enter CIty" required>
+            </div>
+            <div class="form-group">
+                <label for="bio">Bio</label>
+                <input type="text" class="form-control" id="bio" name="bio" placeholder="Enter Bio" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Create a password" required>
+            </div>
+            <div class="form-group">
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" class="form-control" id="confirm-password" name="password1" placeholder="Confirm your password" required>
+            </div>
+            
+            <button type="submit" class="btn btn-primary btn-block">Signup</button>
+        </form>
+
+        <p class="text-center mt-3">Already have an account? <a href="{% url 'signin' %}">Login here</a>.</p>
+        <p class="text-center mt-3"><a href="{% url 'home' %}">Home Page</a>.</p>
+    </div>
+
+    <footer class="text-center py-4 bg-light">
+        <p>&copy; 2024 Restaurant Name. All rights reserved.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

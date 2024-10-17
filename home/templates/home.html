@@ -1,0 +1,128 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spice & Savor</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'home.css' %}"> <!-- Custom styles -->
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Spice & Savor</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- <div class="collapse navbar-collapse" id="navbarNav"> -->
+            <!-- <div class="container"> -->
+                <!-- <a href="{% url 'home' %}" class="navbar-brand">My Website</a> -->
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#menu">Menu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
+                    <li class="nav-item"><a href="{% url 'contact' %}" class="nav-link">Contact</a></li>
+    
+                    {% if user.is_authenticated %}
+                        <li class="nav-item"><a href="{% url 'user_profile' %}" class="nav-link">User Profile</a></li>
+                        <li class="nav-item"><a href="{% url 'signout' %}" class="nav-link">Sign Out</a></li>
+                    {% else %}
+                        <li class="nav-item"><a href="{% url 'signin' %}" class="nav-link">Sign In</a></li>
+                        <li class="nav-item"><a href="{% url 'signup' %}" class="nav-link">Sign Up</a></li>
+                    {% endif %}
+                </ul>
+            <!-- </div> -->
+        <!-- </div> -->
+    </nav>
+
+
+    <header class="hero bg-primary text-white text-center py-5">
+        <div class="container">
+            <h1 style="color: black;">Welcome to Our Restaurant</h1>
+            <!-- <p class="lead" style="color: cadetblue;">Experience the best dishes made with love!</p> -->
+            <a href="#menu" class="btn btn-light btn-lg" style="color: black;">View Menu</a>
+        </div>
+    </header>
+
+    <main class="container my-5">
+        <section id="menu" class="text-center">
+            {% if messages %}
+        <!-- <ul> -->
+                {% for message in messages %}
+                    <b><h1 style="font-style: italic;">{{ message }}</h1></b>
+                {% endfor %}
+        <!-- </ul> -->
+            {% endif %}
+            <h2>Our Menu</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <img src="{% static 'dish1.jpg' %}" class="card-img-top" alt="Dish 1"> <!-- Replace with actual image -->
+                        <div class="card-body">
+                            <h5 class="card-title">Parma Rosa Pasta</h5>
+                            <p class="card-text">₹350</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <img src="{% static 'dish2.jpg' %}" class="card-img-top" alt="Dish 2"> <!-- Replace with actual image -->
+                        <div class="card-body">
+                            <h5 class="card-title">Choclate Cheese Cake</h5>
+                            <p class="card-text">₹250</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <img src="{% static 'dish3.jpg' %}" class="card-img-top" alt="Dish 3"> <!-- Replace with actual image -->
+                        <div class="card-body">
+                            <h5 class="card-title">Fettuccine Alfredo </h5>
+                            <p class="card-text">₹599</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials" class="my-5 text-center">
+            <h2>What Our Customers Say</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <blockquote class="blockquote">
+                        <p class="mb-0">"The best dining experience I've ever had!"</p>
+                        <footer class="blockquote-footer">Sanjiv Kapoor</footer>
+                    </blockquote>
+                </div>
+                <div class="col-md-4">
+                    <blockquote class="blockquote">
+                        <p class="mb-0">"Amazing food and great service!"</p>
+                        <footer class="blockquote-footer">Harpal Singh Sokhi</footer>
+                    </blockquote>
+                </div>
+                <div class="col-md-4">
+                    <blockquote class="blockquote">
+                        <p class="mb-0">"I will definitely be coming back!"</p>
+                        <footer class="blockquote-footer">Vikas Khaana</footer>
+                    </blockquote>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="text-center my-5">
+            <h2>Contact Us</h2>
+            <p>Email: spiceandsavor0311@gmail.com</p>
+            <p>Phone: (+91) 9876512340</p>
+        </section>
+    </main>
+
+    <footer class="text-center py-4 bg-light">
+        <p>&copy; 2024 Restaurant Name. All rights reserved.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
